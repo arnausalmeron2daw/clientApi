@@ -41,7 +41,6 @@
         <div id="editProviderForm" style="display: none;">
             <form id="editForm" action="" method="POST">
                 @csrf
-                @method('PUT')
                 <label for="editName" class="text-black font-bold">Nombre:</label>
                 <input type="text" id="editName" name="name" required><br><br>
 
