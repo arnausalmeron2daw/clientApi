@@ -24,7 +24,7 @@ class AuthController extends Controller
             
             $validated = $validator->validated();
             
-            $response = Http::post(env('API_URL').'/api/login', [
+            $response = Http::post(env('API_URL').'/login', [
                 'email' => $validated['email'],
                 'password' => $validated['password'],
             ]);
@@ -32,7 +32,6 @@ class AuthController extends Controller
             $data = (json_decode($response->body(),true));
             $user = $data['user'];            
             $token = $response->json('token');
-
             session(['name' => $user]);
             session(['token' => $token]);
             session()->save();
